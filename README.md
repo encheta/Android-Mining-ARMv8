@@ -1,12 +1,15 @@
 # Android-Mining
-Quick installation of mining on Android Phones
+Quick installation of mining on Android Phones.
+
+This installation script is experimental and has been adapted from Oink70's original. It has been modified to remove installation of Oink70's public SSH key, as well as redirect it to installing a version of ccminer by simeononsecurity thats even further optimized for most ARMv8 architectures.
+
+I may have also updated the QR and default wallet and pool details to my own. Unless you're wanting to donate some hashrate to me do remember to change it using the steps below. ;)
 
 ## Github cloning and customizing
 1. clone this repo to your own github account.
-2. change the URL on line 35 of the README.md to reflect your own account.
+2. change the URL on line 38 of the README.md to reflect your own account.
 3. replace `QR/install.png` with your own.
-4. **Important**: change the SSH key on line 13 of `install.sh` to reflect your own SSH key.
-5. change lines 50 to reflect your own github link.
+4. change lines 50 to reflect your own github link.
 6. adjust the `config.json` to your address and mining details.
 7. optional: change line 20 of your `config.json` to your own LAN IP range.
 8. optional: change line 21 of your `config.json` to the LAN IP your phone uses.
@@ -68,8 +71,6 @@ Terminating the miner:
 
 ## Monitoring your miners (on a linux host)
 check [MONITORING](/monitoring/MONITORING.md).
-
-WARNING: The scripts installs my own public SSH key. You may want to remove that from your `~/.ssh/authorized_keys` file and replace it with your own for passwordless access.
 
 ### I accept no warranties or liabilities on this repo. It is supplied as a service.
 ### Use at your own risk!!!
