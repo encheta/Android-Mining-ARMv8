@@ -25,7 +25,7 @@ then
   while [ "$INPUT" != "y" ] && [ "$INPUT" != "n" ]
   do
     printf '"~/ccminer/config.json" already exists. Do you want to overwrite? (y/n) '
-    read INPUT
+    read -t 10 INPUT
     if [ "$INPUT" = "y" ]
     then
       echo "\noverwriting current \"~/ccminer/config.json\"\n"
