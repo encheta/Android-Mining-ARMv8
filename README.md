@@ -1,15 +1,15 @@
 # Android-Mining
 Quick installation of mining on Android Phones.
 
-This installation script is experimental and has been adapted from Oink70's original. It has been modified to remove installation of Oink70's public SSH key, as well as redirect it to installing a version of ccminer by simeononsecurity thats even further optimized for most ARMv8 architectures.
+This installation script is experimental and has been adapted from Oink70's original. It has been modified to remove installation of Oink70's public SSH key, as well as redirect it to installing a version of ccminer by simeononsecurity thats even further optimized for most ARMv8 architectures (Cortex models A53, A55, A57, A72, A73, A75, A76, A78c, & A78).
 
-I may have also updated the QR and default wallet and pool details to my own. Unless you're wanting to donate some hashrate to me do remember to change it using the steps below. ;)
+I may have also updated the QR and default wallet and pool details to my own. If you're wanting to donate some hashrate to me, don't remember to change the config using the steps below. ;)
 
 ## Github cloning and customizing
 1. clone this repo to your own github account.
-2. change the URL on line 38 of the README.md to reflect your own account.
+2. change the URL on line 38 of the 'README.md' to reflect your own account.
 3. replace `QR/install.png` with your own.
-4. change lines 50 to reflect your own github link.
+4. change line 41 of 'install.sh' to reflect your own github link.
 6. adjust the `config.json` to your address and mining details.
 7. optional: change line 20 of your `config.json` to your own LAN IP range.
 8. optional: change line 21 of your `config.json` to the LAN IP your phone uses.
@@ -19,7 +19,7 @@ I may have also updated the QR and default wallet and pool details to my own. Un
 - Reading is an dying art. There's no instruction video for people that can't follow instructions step-by-step.
 
 ## Prerequisites
-- Some fundamental Linux knowledge is *required*. (do an online coarse!)
+- Some fundamental Linux knowledge is *required*. (do an online course!)
 - Knowledge about how to operate Linux *screen* is a must.
 - Knowledge on *ssh* and *scp* is highly recommended.
 - Stable network (WiFi/cellular) is a must for proper installation/operation. Be prepared to troubleshoot and fix them yourself.
@@ -72,5 +72,8 @@ Terminating the miner:
 ## Monitoring your miners (on a linux host)
 check [MONITORING](/monitoring/MONITORING.md).
 
+## Monitoring your miners (Using an Android app)
+check [DroidVNC](https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc_ng&hl=en_US&gl=US).
+
 ### I accept no warranties or liabilities on this repo. It is supplied as a service.
-### Use at your own risk!!!
+### This script is Experimental and not fully tested - This is my first public git fork and my coding ability is close to nonexistant. Think of me as the human equivalent of 1000 chimps on keyboards - Use at your own risk!!!
