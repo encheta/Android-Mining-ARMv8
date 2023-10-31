@@ -1,24 +1,27 @@
 {
 	"pools":[
 	{
-		"name": "pool.verus.io",
-        "url": "stratum+tcp://pool.verus.io:9998",
-		"timeout": 150,
-		"disabled": 0
+		"name": "ViporPool",
+        "url": "stratum+tcp://sg.vipor.net:5040",
+		"timeout": 150
 	},
 	{
-		"name": "verus.farm (Quipacorn)",
-        "url": "stratum+tcp://verus.farm:9999",
-		"timeout": 60,
-		"time-limit": 600,
-		"disabled": 0
+		"name": "ViporPoolFailover1",
+        "url": "stratum+tcp://cn.vipor.net:5040",
+ 	"timeout": 150
+ },
+ {
+  "name": "ViporPoolFailover2",
+        "url": "stratum+tcp://ap.vipor.net:5040",
+ 	"timeout": 150
 	}],
 	
-	"user": "i81XL8ZpuCo9jmWLv5L5ikdxrGuHrrpQLz.Donator##",
+	"user": "RWwtFFSeQikGhzWnx4KsGRDoYAP98i6Pag.GenerousDonator",
+ "pass": "x",
 	"algo": "verus",
 	"threads": 8,
 	"cpu-priority": 1,
 	"retry-pause": 5,
-	"api-allow": "192.168.0.0/16",
+	"api-allow": "192.168.50.0/16",
 	"api-bind": "0.0.0.0:4068"
 }
