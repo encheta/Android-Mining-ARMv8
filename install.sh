@@ -1,43 +1,30 @@
 #!/bin/sh
+sudo apt-get -y install software-properties-common
+sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main'
 sudo apt-get -y update
 sudo apt-get -y upgrade
-sudo apt-get -y install libcurl4-openssl-dev libjansson-dev libomp-dev git screen nano jq wget
+sudo apt-get -y install libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential libomp-dev git screen nano jq wget
+sudo wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+sudo apt-get install -y libllvm-16-ocaml-dev libllvm16 llvm-16 llvm-16-dev llvm-16-doc llvm-16-examples llvm-16-runtime clang-16 clang-tools-16 clang-16-doc libclang-common-16-dev libclang-16-dev libclang1-16 clang-format-16 python3-clang-16 clangd-16 clang-tidy-16 libclang-rt-16-dev libpolly-16-dev libfuzzer-16-dev lldb-16 lld-16 libc++-16-dev libc++abi-16-dev libomp-16-dev libclc-16-dev libunwind-16-dev libmlir-16-dev mlir-16-tools flang-16 libclang-rt-16-dev-wasm32 libclang-rt-16-dev-wasm64 libclang-rt-16-dev-wasm32 libclang-rt-16-dev-wasm64
+sudo ln -sf /usr/lib/llvm-16/bin/clang-16 /usr/bin/clang
+sudo ln -sf /usr/lib/llvm-16/bin/clang++ /usr/bin/clang++
 wget http://ports.ubuntu.com/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_arm64.deb
 sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_arm64.deb
 rm libssl1.1_1.1.0g-2ubuntu4_arm64.deb
 
-if [ ! -d ~/ccminer ]
+if [ ! -d ~/CCminer-ARM-optimized ]
 then
-  mkdir ~/ccminer
+  mkdir ~/CCminer-ARM-optimized
 fi
-cd ~/ccminer
 
-GITHUB_RELEASE_JSON=$(curl --silent "https://api.github.com/repos/simeononsecurity/CCminer-ARM-optimized/releases?per_page=1" | jq -c '[.[] | del (.body)]')
-GITHUB_DOWNLOAD_URL=$(echo $GITHUB_RELEASE_JSON | jq -r ".[0].assets[0].browser_download_url")
-GITHUB_DOWNLOAD_NAME=$(echo $GITHUB_RELEASE_JSON | jq -r ".[0].assets[0].name")
+git clone https://github.com/simeononsecurity/CCminer-ARM-optimized.git
+cd CCminer-ARM-optimized
+chmod +x build.sh
+chmod +x configure.sh
+chmod +x autogen.sh
+CXX=clang++ CC=clang ./build.sh
 
-echo "Downloading latest release: $GITHUB_DOWNLOAD_NAME"
-
-wget ${GITHUB_DOWNLOAD_URL} -P ~/ccminer
-if [ -f ~/ccminer/config.json ]
-then
-  INPUT=
-  while [ "$INPUT" != "y" ] && [ "$INPUT" != "n" ]
-  do
-    printf '"~/ccminer/config.json" already exists. Do you want to overwrite? (y/n) '
-    read -n 1 -p INPUT
-    if [ "$INPUT" = "y" ]
-    then
-      echo "\noverwriting current \"~/ccminer/config.json\"\n"
-      rm ~/ccminer/config.json
-    elif [ "$INPUT" = "n" ]
-    then
-      echo "saving as \"~/ccminer/config.json.#\""
-    else
-      echo 'Invalid input. Please answer with "y" or "n".\n'
-    fi
-  done
-fi
+cd ~/CCminer-ARM-optimized
 wget https://raw.githubusercontent.com/encheta/Android-Mining-ARMv8/main/config.json -P ~/ccminer
 
 if [ -f ~/ccminer/ccminer ]
