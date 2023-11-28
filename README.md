@@ -1,7 +1,7 @@
 # Android-Mining
 Quick installation of mining on Android Phones.
 
-This installation script is experimental and has been adapted from Oink70's original. It has been modified to remove installation of Oink70's public SSH key, as well as redirect it to installing a version of ccminer by simeononsecurity thats even further optimized for most ARMv8 architectures (Cortex models A53, A55, A57, A72, A73, A75, A76, A78c, & A78).
+This installation script is experimental and has been adapted from Oink70's original. It has been modified to remove installation of Oink70's public SSH key, as well as redirect it to installing a version of ccminer by simeononsecurity claimed to be even further optimized for most ARMv8 architectures (Cortex models A53, A55, A57, A72, A73, A75, A76, A78c, & A78). This repo is aimed to help users easily compile and test out this fork in an effort to promote further development in the ARM/phone mining space.
 
 I may have also updated the QR and default wallet and pool details to my own. If you're wanting to donate some hashrate to me, don't remember to change the config using the steps below. ;)
 
@@ -41,7 +41,7 @@ For easy access on phones:
 ![install.sh](QR/install.png)
 
 Now adjust pools, mineraddress+workername, and network settings for the API.
-exit with `<CTRL>-X` followed by `y` and an `<ENTER>`
+save with `<CTRL>-S` and exit with `<CTRL>-X`
 ```bash
 nano config.json
 ```
@@ -76,4 +76,4 @@ check [MONITORING](/monitoring/MONITORING.md).
 check [DroidVNC](https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc_ng&hl=en_US&gl=US).
 
 ### I accept no warranties or liabilities on this repo. It is supplied as a service.
-### This script is Experimental and not fully tested - This is my first public git fork and my coding ability is close to nonexistant. Think of me as the human equivalent of 1000 chimps on keyboards - Use at your own risk!!!
+### This script is Experimental and not yet tested - This is my first public git fork and my coding ability is close to nonexistant. Think of me as the human equivalent of 1000 chimps on keyboards - Use at your own risk!!!
